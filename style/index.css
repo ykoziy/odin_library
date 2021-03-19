@@ -1,0 +1,11 @@
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+:root {
+    --baseFontSize: 1rem;
+}
+
+body {
+    background-color: lightslategray;
+}

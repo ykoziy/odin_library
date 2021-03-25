@@ -7,12 +7,8 @@ function Book(title, author, pages, isRead) {
     this.isRead = isRead;
 }
 
-Book.prototype.getIsRead = function() {
-    return this.isRead;
-}
-
-Book.prototype.setIsRead = function(readStatus) {
-    this.isRead = readStatus;
+Book.prototype.toggleIsRead = function() {
+    this.isRead = !this.isRead;
 }
 
 Book.prototype.info = function() {
@@ -22,5 +18,61 @@ Book.prototype.info = function() {
 }
 
 function addBookToLibrary() {
-  // do stuff here
+  // for now hard coded books....
+  myLibrary.push(new Book("Tales from the Loop", "Simon Stålenhag", 128, true));
+  myLibrary.push(new Book("Things From the Flood", "Simon Stålenhag", 132, false));
 }
+
+function displayBooks() {
+    myLibrary.forEach((book, index) => {
+        addCard(book, index);
+    });
+}
+
+function addCard(book, index) {
+    const library = document.querySelector('.library');
+
+    let card = createElementWithClass("div", "card");
+    card.setAttribute('data-index', index);
+
+    let contents = createElementWithClass("div", "card-content");
+
+    let title = createElementWithClass("h3", "book-title");
+    title.textContent = book.title;
+
+    let author = createElementWithClass("p", "book-author");
+    author.textContent = `Author: ${book.author}`;
+
+    let pages = createElementWithClass("p", "book-pages");
+    pages.textContent = `Number of pages: ${book.pages}`;
+
+    contents.appendChild(title);
+    contents.appendChild(author);
+    contents.appendChild(pages);
+
+    let footer = createElementWithClass("div", "card-footer");
+
+    let toggle = createElementWithClass("input", "toggle");
+    toggle.setAttribute("type", "checkbox");
+    toggle.checked = book.isRead;
+    toggle.addEventListener('change', handleToggleSwitch);
+
+    card.appendChild(contents);
+    card.appendChild(footer);
+    footer.appendChild(toggle);
+    library.appendChild(card);
+}
+
+function createElementWithClass(tag, ...classNames) {
+    let element = document.createElement(tag);
+    classNames.forEach(className => element.classList.add(className));
+    return element;
+}
+
+function handleToggleSwitch(event) {
+    const bookIndex = Number(event.target.parentNode.parentNode.dataset.index);
+    myLibrary[bookIndex].toggleIsRead();
+}
+
+addBookToLibrary();
+displayBooks();

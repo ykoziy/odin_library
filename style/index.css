@@ -4,8 +4,103 @@
 
 :root {
     --baseFontSize: 1rem;
+    --h1FontSize: 2rem;
+    --h3FontSize: 1.3rem;    
 }
 
 body {
     background-color: lightslategray;
 }
+
+h1 {
+    font-size: var(--h1FontSize);
+}
+
+h3 {
+    font-size: var(--h3FontSize);
+}
+
+.container {
+    margin: auto;
+    max-width: 1140px;
+    background-color: lightgray;
+}
+
+.container header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    background-color: lightsteelblue;
+}
+
+.library {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: lightyellow;
+    margin: 1rem;
+    border-radius: 8px;
+    overflow:hidden;
+}
+
+.book-title {
+    font-weight: bold;
+}
+
+.card-content {
+    padding-top: 1.9rem;
+    padding-bottom: 1.9rem;
+    padding-right: 3rem;
+    padding-left: 0.6rem;
+}
+
+.card-footer {
+    background-color: yellowgreen;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toggle {
+    appearance: none;
+    width: 31px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: red;
+    transition: background-color ease 0.3s;
+  }
+  
+  .toggle:before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 2;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    left: 2px;
+    top: 2px;
+    transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+  }
+  
+  .toggle:checked {
+    background-color:green;
+  }
+  
+  .toggle:checked:before {
+    left: 15px;
+  }

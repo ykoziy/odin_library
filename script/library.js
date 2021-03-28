@@ -55,6 +55,10 @@ function addBookCard(book, index) {
     let card = createElementWithClass("div", "card");
     card.setAttribute('data-index', index);
 
+    let header = createElementWithClass("div", "card-header");
+    let remove = createElementWithClass("span", "remove-book");
+    header.appendChild(remove);
+
     let contents = createElementWithClass("div", "card-content");
 
     let title = createElementWithClass("h3", "book-title");
@@ -77,6 +81,7 @@ function addBookCard(book, index) {
     toggle.checked = book.isRead;
     toggle.addEventListener('change', handleToggleSwitch);
 
+    card.appendChild(header);
     card.appendChild(contents);
     card.appendChild(footer);
     footer.appendChild(toggle);

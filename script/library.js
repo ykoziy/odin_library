@@ -57,6 +57,7 @@ function addBookCard(book, index) {
 
     let header = createElementWithClass("div", "card-header");
     let remove = createElementWithClass("span", "remove-book");
+    remove.addEventListener("click", handleRemoveBook)
     header.appendChild(remove);
 
     let contents = createElementWithClass("div", "card-content");
@@ -108,6 +109,11 @@ function handleNewBookButton(event) {
     const modal = document.querySelector(".modal");
     modal.classList.remove("hide");
     modal.classList.add("show");
+}
+
+function handleRemoveBook(event) {
+    const bookIndex = Number(event.target.parentNode.parentNode.dataset.index);
+    removeBook(bookIndex);
 }
 
 function handleClickOutsideModal(event) {

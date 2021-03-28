@@ -22,6 +22,21 @@ function addBooksToLibrary() {
   myLibrary.push(new Book("Tales from the Loop", "Simon Stålenhag", 128, true));
   myLibrary.push(new Book("Things From the Flood", "Simon Stålenhag", 132, false));
 }
+function submitBook(event) {
+    event.preventDefault();
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const isRead = document.getElementById("read").checked;
+    addBookToLibrary(title, author, pages, isRead);
+    hideModal();
+}
+
+function addBookToLibrary(title, author, pages, isRead) {
+    let book = new Book(title, author, pages, isRead);
+    myLibrary.push(book);
+    addBookCard(book, myLibrary.length - 1);
+}
 
 function displayBooks() {
     myLibrary.forEach((book, index) => {
@@ -81,9 +96,7 @@ function handleNewBookButton(event) {
 }
 
 function handleClickOutsideModal(event) {
-    const modal = document.querySelector(".modal");
     const modalContent = document.querySelector(".modal-content");
-    const form = document.querySelector(".add-book");
     let target = event.target;
     do {
         if (target == modalContent) {
@@ -91,13 +104,20 @@ function handleClickOutsideModal(event) {
         }
         target = target.parentNode;
     } while (target);
-   modal.classList.remove("show");
-   modal.classList.add("hide");
-   form.reset();
+    hideModal();
+}
+
+function hideModal() {
+    const modal = document.querySelector(".modal");
+    const form = document.querySelector(".add-book");
+    modal.classList.remove("show");
+    modal.classList.add("hide");
+    form.reset();    
 }
 
 document.querySelector(".new-book-btn").addEventListener("click", handleNewBookButton);
 document.querySelector(".modal").addEventListener("click", handleClickOutsideModal);
+document.querySelector(".add-book").addEventListener("submit", submitBook);
 
-addBooksToLibrary();
+//addBooksToLibrary();
 displayBooks();

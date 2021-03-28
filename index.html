@@ -8,6 +8,22 @@
     </head>
     <body>
         <div class="container">
+            <div class="modal">
+                <div class="modal-content">
+                    <h1>Add Book</h1>
+                    <form class="add-book">
+                        <label for="title">Book title:</label><br>
+                        <input type="text" id="title" required><br>
+                        <label for="author">Book author:</label><br>
+                        <input type="text" id="author" required><br>
+                        <label for="pages"># pages:</label><br>
+                        <input type="text" id="pages" required><br>
+                        <label for="read">read?</label>
+                        <input type="checkbox" id="read"><br>
+                        <input type="submit" value="Add book">                    
+                    </form>
+                </div>
+            </div>
             <header>
                 <div class="logo">
                     <h1>My Library</h1>
@@ -17,7 +33,7 @@
                 </div>
             </header>
             <div class="menu">
-                Menu buttons go here
+                <button class="new-book-btn">New Book</button>
             </div>
             <div class="library">                                                                         
             </div>

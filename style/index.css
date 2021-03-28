@@ -10,6 +10,7 @@
 
 body {
     background-color: lightslategray;
+    height: 100vh;
 }
 
 h1 {
@@ -82,9 +83,9 @@ h3 {
     cursor: pointer;
     background-color: red;
     transition: background-color ease 0.3s;
-  }
+}
   
-  .toggle:before {
+.toggle:before {
     content: "";
     display: block;
     position: absolute;
@@ -95,12 +96,60 @@ h3 {
     left: 2px;
     top: 2px;
     transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
-  }
+}
   
-  .toggle:checked {
+.toggle:checked {
     background-color:green;
-  }
+}
   
-  .toggle:checked:before {
+.toggle:checked:before {
     left: 15px;
-  }
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.51);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+}
+
+.modal-content {
+    background-color: sienna;
+    width: 500px;
+    height: 900px;
+}
+
+@keyframes showModal {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes hideModal {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }    
+}
+
+.show {
+    animation: showModal 0.2s ease-in;
+    transform: scale(1);
+}
+
+.hide {
+    animation: hideModal 0.2s ease-in;
+    transform: scale(0);
+}

@@ -144,9 +144,18 @@ function toLocalStorage() {
     localStorage.setItem('books', JSON.stringify(myLibrary));
 }
 
+function fromLocalStorage() {
+    console.log('from local storage....');
+    myLibrary = JSON.parse(localStorage.getItem('books'));
+    if (myLibrary == null) {
+        myLibrary = [];
+    }
+    displayBooks();
+}
+
 document.querySelector(".new-book-btn").addEventListener("click", handleNewBookButton);
 document.querySelector(".modal").addEventListener("mousedown", handleClickOutsideModal);
 document.querySelector(".add-book").addEventListener("submit", submitBook);
 
 //addBooksToLibrary();
-displayBooks();
+fromLocalStorage();

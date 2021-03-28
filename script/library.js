@@ -17,7 +17,7 @@ Book.prototype.info = function() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead ? read : unread}`;
 }
 
-function addBookToLibrary() {
+function addBooksToLibrary() {
   // for now hard coded books....
   myLibrary.push(new Book("Tales from the Loop", "Simon Stålenhag", 128, true));
   myLibrary.push(new Book("Things From the Flood", "Simon Stålenhag", 132, false));
@@ -25,11 +25,11 @@ function addBookToLibrary() {
 
 function displayBooks() {
     myLibrary.forEach((book, index) => {
-        addCard(book, index);
+        addBookCard(book, index);
     });
 }
 
-function addCard(book, index) {
+function addBookCard(book, index) {
     const library = document.querySelector('.library');
 
     let card = createElementWithClass("div", "card");
@@ -99,5 +99,5 @@ function handleClickOutsideModal(event) {
 document.querySelector(".new-book-btn").addEventListener("click", handleNewBookButton);
 document.querySelector(".modal").addEventListener("click", handleClickOutsideModal);
 
-addBookToLibrary();
+addBooksToLibrary();
 displayBooks();

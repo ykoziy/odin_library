@@ -74,5 +74,22 @@ function handleToggleSwitch(event) {
     myLibrary[bookIndex].toggleIsRead();
 }
 
+function handleNewBookButton(event) {
+    const modal = document.querySelector(".modal");
+    modal.classList.remove("hide");
+    modal.classList.add("show");
+}
+
+function handleClickOutsideModal(event) {
+    const modal = document.querySelector(".modal");
+    if (document.querySelector(".modal-content") != event.target) {
+        modal.classList.remove("show");
+        modal.classList.add("hide");
+    }
+}
+
+document.querySelector(".new-book-btn").addEventListener("click", handleNewBookButton);
+document.querySelector(".modal").addEventListener("click", handleClickOutsideModal);
+
 addBookToLibrary();
 displayBooks();

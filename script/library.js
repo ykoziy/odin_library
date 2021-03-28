@@ -82,7 +82,8 @@ function handleNewBookButton(event) {
 
 function handleClickOutsideModal(event) {
     const modal = document.querySelector(".modal");
-    const modalContent = document.querySelector(".modal-content")
+    const modalContent = document.querySelector(".modal-content");
+    const form = document.querySelector(".add-book");
     let target = event.target;
     do {
         if (target == modalContent) {
@@ -92,6 +93,7 @@ function handleClickOutsideModal(event) {
     } while (target);
    modal.classList.remove("show");
    modal.classList.add("hide");
+   form.reset();
 }
 
 document.querySelector(".new-book-btn").addEventListener("click", handleNewBookButton);

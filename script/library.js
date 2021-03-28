@@ -38,6 +38,11 @@ function addBookToLibrary(title, author, pages, isRead) {
     addBookCard(book, myLibrary.length - 1);
 }
 
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    removeBookCard(index);
+}
+
 function displayBooks() {
     myLibrary.forEach((book, index) => {
         addBookCard(book, index);
@@ -76,6 +81,11 @@ function addBookCard(book, index) {
     card.appendChild(footer);
     footer.appendChild(toggle);
     library.appendChild(card);
+}
+
+function removeBookCard(index) {
+    const bookCard = document.querySelector(`[data-index="${index}"]`);
+    bookCard.remove();
 }
 
 function createElementWithClass(tag, ...classNames) {
@@ -119,5 +129,5 @@ document.querySelector(".new-book-btn").addEventListener("click", handleNewBookB
 document.querySelector(".modal").addEventListener("mousedown", handleClickOutsideModal);
 document.querySelector(".add-book").addEventListener("submit", submitBook);
 
-//addBooksToLibrary();
+addBooksToLibrary();
 displayBooks();

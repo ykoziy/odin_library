@@ -35,11 +35,13 @@ function submitBook(event) {
 function addBookToLibrary(title, author, pages, isRead) {
     let book = new Book(title, author, pages, isRead);
     myLibrary.push(book);
+    toLocalStorage();
     addBookCard(book, myLibrary.length - 1);
 }
 
 function removeBook(index) {
     myLibrary.splice(index, 1);
+    toLocalStorage();
     removeBookCard(index);
 }
 
@@ -103,6 +105,7 @@ function createElementWithClass(tag, ...classNames) {
 function handleToggleSwitch(event) {
     const bookIndex = Number(event.target.parentNode.parentNode.dataset.index);
     myLibrary[bookIndex].toggleIsRead();
+    toLocalStorage();
 }
 
 function handleNewBookButton(event) {
@@ -136,9 +139,14 @@ function hideModal() {
     form.reset();    
 }
 
+function toLocalStorage() {
+    let books = JSON.stringify(myLibrary);
+    localStorage.setItem('books', JSON.stringify(myLibrary));
+}
+
 document.querySelector(".new-book-btn").addEventListener("click", handleNewBookButton);
 document.querySelector(".modal").addEventListener("mousedown", handleClickOutsideModal);
 document.querySelector(".add-book").addEventListener("submit", submitBook);
 
-addBooksToLibrary();
+//addBooksToLibrary();
 displayBooks();

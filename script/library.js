@@ -116,7 +116,7 @@ function hideModal() {
 }
 
 document.querySelector(".new-book-btn").addEventListener("click", handleNewBookButton);
-document.querySelector(".modal").addEventListener("click", handleClickOutsideModal);
+document.querySelector(".modal").addEventListener("mousedown", handleClickOutsideModal);
 document.querySelector(".add-book").addEventListener("submit", submitBook);
 
 //addBooksToLibrary();

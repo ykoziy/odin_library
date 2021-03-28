@@ -5,7 +5,8 @@
 :root {
     --baseFontSize: 1rem;
     --h1FontSize: 2rem;
-    --h3FontSize: 1.3rem;    
+    --h3FontSize: 1.3rem;
+    --inputFontSize: 1.2rem;   
 }
 
 body {
@@ -147,9 +148,61 @@ header {
 }
 
 .modal-content {
-    background-color: sienna;
+    background-color: lightgray;
+    border: 5px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
     width: 500px;
-    height: 900px;
+    overflow:hidden;
+}
+
+.modal-content-header {
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 80px;
+    background-color: lightsteelblue;
+}
+
+.modal-content-body {
+    padding: 1.5rem;
+    height: 350px;
+}
+
+.add-book {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.add-book label {
+    font-size: var(--h3FontSize);
+}
+
+.add-book input[type="text"] {
+    padding: 10px 10px;
+    line-height: 10px;
+    font-weight: bold;
+    font-size: var(--inputFontSize);
+}
+
+.add-book input[type="submit"] {
+    font-weight: bold;
+    font-size: var(--baseFontSize);
+    height: 45px;
+}
+
+.add-book input[type="checkbox"] {
+    height: 25px;
+    width: 25px;
+}
+
+.book-read-input {
+    display: flex;
+    align-items: center;
 }
 
 @keyframes showModal {

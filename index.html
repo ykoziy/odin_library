@@ -10,18 +10,24 @@
         <div class="container">
             <div class="modal">
                 <div class="modal-content">
-                    <h1>Add Book</h1>
-                    <form class="add-book">
-                        <label for="title">Book title:</label><br>
-                        <input type="text" id="title" required><br>
-                        <label for="author">Book author:</label><br>
-                        <input type="text" id="author" required><br>
-                        <label for="pages"># pages:</label><br>
-                        <input type="text" id="pages" required><br>
-                        <label for="read">read?</label>
-                        <input type="checkbox" id="read"><br>
-                        <input type="submit" value="Add book">                    
-                    </form>
+                    <div class="modal-content-header">
+                        <h1>Add Book</h1>
+                    </div>
+                    <div class="modal-content-body">
+                        <form class="add-book">
+                            <label for="title">Book title:</label>
+                            <input type="text" id="title" required>
+                            <label for="author">Book author:</label>
+                            <input type="text" id="author" required>
+                            <label for="pages"># pages:</label>
+                            <input type="text" id="pages" required>
+                            <span class="book-read-input">
+                                <label for="read">Read?</label>
+                                <input type="checkbox" id="read">
+                            </span> 
+                            <input type="submit" value="Add book">                 
+                        </form>
+                    </div>         
                 </div>
             </div>
             <header>

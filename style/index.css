@@ -21,6 +21,10 @@ h3 {
     font-size: var(--h3FontSize);
 }
 
+header {
+    padding: 0.5rem;
+}
+
 .container {
     margin: auto;
     max-width: 1140px;
@@ -35,6 +39,7 @@ h3 {
 .menu {
     display: flex;
     background-color: lightsteelblue;
+    padding: 0.5rem;    
 }
 
 .library {

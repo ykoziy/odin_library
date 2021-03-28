@@ -157,5 +157,4 @@ document.querySelector(".new-book-btn").addEventListener("click", handleNewBookB
 document.querySelector(".modal").addEventListener("mousedown", handleClickOutsideModal);
 document.querySelector(".add-book").addEventListener("submit", submitBook);
 
-//addBooksToLibrary();
 fromLocalStorage();

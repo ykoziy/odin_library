@@ -82,10 +82,16 @@ function handleNewBookButton(event) {
 
 function handleClickOutsideModal(event) {
     const modal = document.querySelector(".modal");
-    if (document.querySelector(".modal-content") != event.target) {
-        modal.classList.remove("show");
-        modal.classList.add("hide");
-    }
+    const modalContent = document.querySelector(".modal-content")
+    let target = event.target;
+    do {
+        if (target == modalContent) {
+            return;
+        }
+        target = target.parentNode;
+    } while (target);
+   modal.classList.remove("show");
+   modal.classList.add("hide");
 }
 
 document.querySelector(".new-book-btn").addEventListener("click", handleNewBookButton);

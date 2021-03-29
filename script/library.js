@@ -148,6 +148,10 @@ function fromLocalStorage() {
     myLibrary = JSON.parse(localStorage.getItem('books'));
     if (myLibrary == null) {
         myLibrary = [];
+    } else {
+        myLibrary.forEach(book=> {
+            Object.setPrototypeOf(book, Book.prototype);
+        });
     }
     displayBooks();
 }

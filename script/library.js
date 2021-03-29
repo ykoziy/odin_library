@@ -51,6 +51,20 @@ function displayBooks() {
     });
 }
 
+function filterBooks() {
+    let filter = this.value;
+    myLibrary.forEach((book, index) => {
+        const bookCard = document.querySelector(`[data-index="${index}"]`);
+        if (filter === "read" && !book.isRead) {
+            bookCard.classList.add("filtered");
+        } else if (filter === "unread" && book.isRead) {
+            bookCard.classList.add("filtered");
+        } else {
+            bookCard.classList.remove("filtered");
+        }
+    });
+}
+
 function addBookCard(book, index) {
     const library = document.querySelector('.library');
 
@@ -159,5 +173,6 @@ function fromLocalStorage() {
 document.querySelector(".new-book-btn").addEventListener("click", handleNewBookButton);
 document.querySelector(".modal").addEventListener("mousedown", handleClickOutsideModal);
 document.querySelector(".add-book").addEventListener("submit", submitBook);
+document.getElementById("filter-by").addEventListener("change", filterBooks);
 
 fromLocalStorage();

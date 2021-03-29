@@ -60,6 +60,10 @@ header {
     overflow:hidden;
 }
 
+.filtered {
+    display: none;
+}
+
 .book-title {
     font-weight: bold;
 }

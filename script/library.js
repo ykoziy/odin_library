@@ -145,7 +145,6 @@ function toLocalStorage() {
 }
 
 function fromLocalStorage() {
-    console.log('from local storage....');
     myLibrary = JSON.parse(localStorage.getItem('books'));
     if (myLibrary == null) {
         myLibrary = [];

@@ -40,6 +40,7 @@ header {
 .menu {
     display: flex;
     background-color: lightsteelblue;
+    justify-content: space-between;
     padding: 0.5rem;    
 }
 

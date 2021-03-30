@@ -24,6 +24,7 @@ h3 {
 
 header {
     padding: 0.5rem;
+    padding-top: 1rem;
 }
 
 .container {
@@ -35,6 +36,18 @@ header {
 .container header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 50px;
+    margin-right: 1rem;
+    margin-left: 0.5rem;
 }
 
 .menu {

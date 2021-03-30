@@ -187,7 +187,7 @@ header {
     font-size: var(--h3FontSize);
 }
 
-.add-book input[type="text"] {
+.add-book input[type="text"], .add-book input[type="number"] {
     padding: 10px 10px;
     line-height: 10px;
     font-weight: bold;

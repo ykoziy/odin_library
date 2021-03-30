@@ -53,15 +53,16 @@ function displayBooks() {
 
 function filterBooks() {
     let filter = this.value;
-    myLibrary.forEach((book, index) => {
-        const bookCard = document.querySelector(`[data-index="${index}"]`);
-        if (filter === "read" && !book.isRead) {
-            bookCard.classList.add("filtered");
-        } else if (filter === "unread" && book.isRead) {
-            bookCard.classList.add("filtered");
+    const books = Array.from(document.querySelectorAll(".card"));
+    books.forEach(book => {
+        let isRead = book.children[2].children[0].checked;
+        if (filter === "read" && !isRead) {
+            book.classList.add("filtered");
+        } else if (filter === "unread" && isRead) {
+            book.classList.add("filtered");
         } else {
-            bookCard.classList.remove("filtered");
-        }
+            book.classList.remove("filtered");
+        }        
     });
 }
 

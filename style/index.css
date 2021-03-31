@@ -7,10 +7,15 @@
     --h1FontSize: 2rem;
     --h3FontSize: 1.3rem;
     --inputFontSize: 1.2rem;   
+    --card-bg-color: #ffffe0;
+    --main-bg-color: #778899;
+    --card-sides-color: #9acd31;
+    --menu-bg-color: #b0c4de;
+    --container-bg-color: #d3d3d3;
 }
 
 body {
-    background-color: lightslategray;
+    background-color: var(--main-bg-color);
     height: 100vh;
 }
 
@@ -30,7 +35,7 @@ header {
 .container {
     margin: auto;
     max-width: 1140px;
-    background-color: lightgray;
+    background-color: #d3d3d3;
 }
 
 .container header {
@@ -52,9 +57,11 @@ header {
 
 .menu {
     display: flex;
-    background-color: lightsteelblue;
+    background-color: var(--menu-bg-color);
     justify-content: space-between;
-    padding: 0.5rem;    
+    padding: 0.5rem;
+    border-bottom: 2px solid black;
+    box-shadow: 0px 11px 9px -4px rgba(0,0,0,0.34);
 }
 
 .library {
@@ -67,10 +74,11 @@ header {
 }
 
 .card {
-    background-color: lightyellow;
+    background-color: var(--card-bg-color);
     margin: 1rem;
     border-radius: 8px;
     overflow:hidden;
+    box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.37);
 }
 
 .filtered {
@@ -81,8 +89,8 @@ header {
     font-weight: bold;
 }
 
-.card-header {
-    background-color: yellowgreen;
+.card-header, .card-footer {
+    background-color: var(--card-sides-color);
     padding: 0.3rem;
     display: flex;
     justify-content: flex-end;
@@ -107,13 +115,6 @@ header {
     padding-bottom: 1.9rem;
     padding-right: 3rem;
     padding-left: 0.6rem;
-}
-
-.card-footer {
-    background-color: yellowgreen;
-    padding: 0.3rem;
-    display: flex;
-    justify-content: flex-end;
 }
 
 .toggle {
@@ -166,7 +167,7 @@ header {
 }
 
 .modal-content {
-    background-color: lightgray;
+    background-color: var(--card-bg-color);
     border: 5px solid black;
     border-radius: 10px;
     display: flex;
@@ -181,7 +182,7 @@ header {
     text-align: center;
     vertical-align: middle;
     line-height: 80px;
-    background-color: lightsteelblue;
+    background-color: var(--card-sides-color);
 }
 
 .modal-content-body {

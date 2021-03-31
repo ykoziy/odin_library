@@ -79,6 +79,12 @@ header {
     border-radius: 8px;
     overflow:hidden;
     box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.37);
+    transition: 0.2s all;
+}
+
+.removed {
+    transform: scale(0.3);
+    opacity: 0.2;
 }
 
 .filtered {

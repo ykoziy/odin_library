@@ -108,7 +108,10 @@ function addBookCard(book, index) {
 
 function removeBookCard(index) {
     const bookCard = document.querySelector(`[data-index="${index}"]`);
-    bookCard.remove();
+    bookCard.classList.add("removed");
+    bookCard.addEventListener("transitionend", () => {
+        bookCard.remove();
+    });
 }
 
 function createElementWithClass(tag, ...classNames) {

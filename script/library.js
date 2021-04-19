@@ -121,7 +121,7 @@ class LibraryDisplay {
     
         let header = this.createElementWithClass("div", "card-header");
         let remove = this.createElementWithClass("span", "remove-book");
-        remove.addEventListener("click", this.handleRemoveBook)
+        remove.addEventListener("click", this.handleRemoveBook.bind(this))
         header.appendChild(remove);
     
         let contents = this.createElementWithClass("div", "card-content");
@@ -189,8 +189,8 @@ function addBooksToLibrary() {
     // for now hard coded books....
     myLibrary.push(new Book("Tales from the Loop", "Simon Stålenhag", 128, true));
     myLibrary.push(new Book("Things From the Flood", "Simon Stålenhag", 132, false));
-  }
-  
+}
+
 
 const libraryDisplay = new LibraryDisplay();
 LocalStorage.fromLocalStorage();

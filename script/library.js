@@ -165,13 +165,13 @@ function toLocalStorage() {
 }
 
 function fromLocalStorage() {
-    myLibrary = JSON.parse(localStorage.getItem('books'));
-    if (myLibrary == null) {
+    jsonLibrary = JSON.parse(localStorage.getItem('books'));
+    if (jsonLibrary == null) {
         myLibrary = [];
     } else {
-        myLibrary.forEach(book=> {
-            Object.setPrototypeOf(book, Book.prototype);
-        });
+        myLibrary = jsonLibrary.map(book => {
+            return Object.assign(new Book(), book);  
+        })
     }
     displayBooks();
 }

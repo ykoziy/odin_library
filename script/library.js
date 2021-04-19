@@ -160,7 +160,6 @@ function hideModal() {
 }
 
 function toLocalStorage() {
-    let books = JSON.stringify(myLibrary);
     localStorage.setItem('books', JSON.stringify(myLibrary));
 }
 
